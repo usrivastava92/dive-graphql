@@ -10,8 +10,8 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "publishers")
-public class Publishers {
+@Table(name = "publisher")
+public class Publisher {
 
     @Id
     @Column(name = "id")

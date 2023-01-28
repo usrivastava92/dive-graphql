@@ -1,4 +1,4 @@
 package com.dive.graphql.service;
 
-public interface BookService {
+public interface GenreService {
 }

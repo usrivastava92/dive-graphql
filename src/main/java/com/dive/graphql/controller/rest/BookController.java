@@ -1,4 +1,4 @@
-package com.dive.graphql.controller;
+package com.dive.graphql.controller.rest;
 
 import com.dive.graphql.entity.Book;
 import com.dive.graphql.service.BookService;
@@ -19,7 +19,7 @@ public class BookController {
     private final BookService bookService;
 
     @GetMapping("/{id}")
-    public Optional<Book> getBook(@PathVariable String id) {
+    public Optional<Book> getBook(@PathVariable Integer id) {
         return bookService.getById(id);
     }
 

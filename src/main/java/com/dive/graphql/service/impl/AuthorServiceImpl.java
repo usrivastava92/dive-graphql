@@ -1,4 +1,8 @@
-package com.dive.graphql.service;
+package com.dive.graphql.service.impl;
 
-public interface AuthorService {
+import com.dive.graphql.service.AuthorService;
+import org.springframework.stereotype.Service;
+
+@Service
+public class AuthorServiceImpl implements AuthorService {
 }
