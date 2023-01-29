@@ -1,0 +1,27 @@
+type Author {
+    id: ID!
+    firstName: String
+    lastName: String
+}
+
+type Publisher {
+    id: ID!
+    name: String
+}
+
+type Genre {
+    id: ID!
+    name: String
+}
+
+type Book {
+    id: ID!
+    title: String
+    author: Author
+    publisher: Publisher
+    genre: Genre
+}
+
+type Query {
+    getAllBooks : [Book]
+}

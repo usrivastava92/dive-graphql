@@ -13,3 +13,7 @@ spring:
   sql:
     init:
       mode: never
+  graphql:
+    graphiql:
+      enabled: true
+    path: /graphql

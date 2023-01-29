@@ -20,7 +20,7 @@ public class BookController {
 
     @GetMapping("/{id}")
     public Optional<Book> getBook(@PathVariable Integer id) {
-        return bookService.getById(id);
+        return bookService.findById(id);
     }
 
 }
