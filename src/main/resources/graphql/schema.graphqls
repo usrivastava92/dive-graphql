@@ -1,28 +1,29 @@
-type Author {
-    firstName: String
+type User {
     id: ID!
-    lastName: String
+    username: String
+    email: String
+    password: String
+    posts: [Post]
 }
 
-type Book {
-    author: Author
-    genre: Genre
+type Post {
     id: ID!
-    publisher: Publisher
     title: String
-}
-
-type Genre {
-    id: ID!
-    name: String
-}
-
-type Publisher {
-    id: ID!
-    name: String
+    body: String
+    author: User
 }
 
 type Query {
-    getBookById(id: ID!): Book
-    getAllBooks: [Book]
+    userById(id: ID!): User
+    users: [User]
+}
+
+input AddUserRequest {
+    username: String!
+    email: String!
+    password: String!
+}
+
+type Mutation {
+    addUser(user: AddUserRequest!) : User
 }

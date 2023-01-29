@@ -1,43 +1,25 @@
-INSERT INTO author (id, firstName, lastName) VALUES (1, 'John', 'Smith');
-INSERT INTO author (id, firstName, lastName) VALUES (2, 'Jane', 'Doe');
-INSERT INTO author (id, firstName, lastName) VALUES (3, 'Bob', 'Johnson');
-INSERT INTO author (id, firstName, lastName) VALUES (4, 'Emily', 'Brown');
-INSERT INTO author (id, firstName, lastName) VALUES (5, 'Michael', 'Johnson');
-INSERT INTO author (id, firstName, lastName) VALUES (6, 'Ashley', 'Williams');
-INSERT INTO author (id, firstName, lastName) VALUES (7, 'Brian', 'Jones');
-INSERT INTO author (id, firstName, lastName) VALUES (8, 'Jessica', 'Miller');
-INSERT INTO author (id, firstName, lastName) VALUES (9, 'Joshua', 'Moore');
-INSERT INTO author (id, firstName, lastName) VALUES (10, 'Amanda', 'Taylor');
+INSERT INTO users (username, email, password)
+VALUES
+    ('user1', 'user1@example.com', 'password1'),
+    ('user2', 'user2@example.com', 'password2'),
+    ('user3', 'user3@example.com', 'password3'),
+    ('user4', 'user4@example.com', 'password4'),
+    ('user5', 'user5@example.com', 'password5'),
+    ('user6', 'user6@example.com', 'password6'),
+    ('user7', 'user7@example.com', 'password7'),
+    ('user8', 'user8@example.com', 'password8'),
+    ('user9', 'user9@example.com', 'password9'),
+    ('user10', 'user10@example.com', 'password10');
 
-INSERT INTO publisher (id, name) VALUES (1, 'Publisher A');
-INSERT INTO publisher (id, name) VALUES (2, 'Publisher B');
-INSERT INTO publisher (id, name) VALUES (3, 'Publisher C');
-INSERT INTO publisher (id, name) VALUES (4, 'Publisher D');
-INSERT INTO publisher (id, name) VALUES (5, 'Publisher E');
-INSERT INTO publisher (id, name) VALUES (6, 'Publisher F');
-INSERT INTO publisher (id, name) VALUES (7, 'Publisher G');
-INSERT INTO publisher (id, name) VALUES (8, 'Publisher H');
-INSERT INTO publisher (id, name) VALUES (9, 'Publisher I');
-INSERT INTO publisher (id, name) VALUES (10, 'Publisher J');
-
-INSERT INTO genre (id, name) VALUES (1, 'Fiction');
-INSERT INTO genre (id, name) VALUES (2, 'Non-Fiction');
-INSERT INTO genre (id, name) VALUES (3, 'Mystery');
-INSERT INTO genre (id, name) VALUES (4, 'Science Fiction');
-INSERT INTO genre (id, name) VALUES (5, 'Romance');
-INSERT INTO genre (id, name) VALUES (6, 'Horror');
-INSERT INTO genre (id, name) VALUES (7, 'Thriller');
-INSERT INTO genre (id, name) VALUES (8, 'Adventure');
-INSERT INTO genre (id, name) VALUES (9, 'Comedy');
-INSERT INTO genre (id, name) VALUES (10, 'Drama');
-
-INSERT INTO book (id, title, authorId, publisherId, genreId) VALUES (1, 'Book 1', 1, 1, 1);
-INSERT INTO book (id, title, authorId, publisherId, genreId) VALUES (2, 'Book 2', 2, 2, 2);
-INSERT INTO book (id, title, authorId, publisherId, genreId) VALUES (3, 'Book 3', 3, 3, 3);
-INSERT INTO book (id, title, authorId, publisherId, genreId) VALUES (4, 'Book 4', 4, 4, 4);
-INSERT INTO book (id, title, authorId, publisherId, genreId) VALUES (5, 'Book 5', 5, 5, 5);
-INSERT INTO book (id, title, authorId, publisherId, genreId) VALUES (6, 'Book 6', 6, 6, 6);
-INSERT INTO book (id, title, authorId, publisherId, genreId) VALUES (7, 'Book 7', 7, 7, 7);
-INSERT INTO book (id, title, authorId, publisherId, genreId) VALUES (8, 'Book 8', 8, 8, 8);
-INSERT INTO book (id, title, authorId, publisherId, genreId) VALUES (9, 'Book 9', 9, 9, 9);
-INSERT INTO book (id, title, authorId, publisherId, genreId) VALUES (10, 'Book 10', 10, 10, 10);
+INSERT INTO posts (title, body, author_id)
+VALUES
+    ('Title 1', 'Body 1', 1),
+    ('Title 2', 'Body 2', 2),
+    ('Title 3', 'Body 3', 3),
+    ('Title 4', 'Body 4', 4),
+    ('Title 5', 'Body 5', 5),
+    ('Title 6', 'Body 6', 6),
+    ('Title 7', 'Body 7', 7),
+    ('Title 8', 'Body 8', 8),
+    ('Title 9', 'Body 9', 9),
+    ('Title 10', 'Body 10', 10);
