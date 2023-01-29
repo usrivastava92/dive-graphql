@@ -14,13 +14,18 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/book")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-public class BookController {
+public class BookRestController {
 
     private final BookService bookService;
 
     @GetMapping("/{id}")
     public Optional<Book> getBook(@PathVariable Integer id) {
         return bookService.findById(id);
+    }
+
+    @GetMapping
+    public Iterable<Book> getAllBooks() {
+        return bookService.findAll();
     }
 
 }
