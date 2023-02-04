@@ -1,4 +1,8 @@
-type User {
+interface Entity {
+    id: ID!
+}
+
+type User implements Entity {
     id: ID!
     username: String
     email: String
@@ -6,16 +10,22 @@ type User {
     posts: [Post]
 }
 
-type Post {
+type Post implements Entity {
     id: ID!
     title: String
     body: String
     author: User
 }
 
+enum EntityType {
+    USER,
+    POST
+}
+
 type Query {
     userById(id: ID!): User
     users: [User]
+    getEntityById(entityType: EntityType, id: ID!): Entity
 }
 
 input AddUserRequest {
@@ -26,4 +36,8 @@ input AddUserRequest {
 
 type Mutation {
     addUser(user: AddUserRequest!) : User
+}
+
+type Subscription {
+    users: User
 }
