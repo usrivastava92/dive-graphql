@@ -1,4 +1,4 @@
-package com.dive.graphql.controller.graphql;
+package com.dive.graphql.controller;
 
 import com.dive.graphql.dto.AddUserRequest;
 import com.dive.graphql.entity.User;
@@ -14,42 +14,35 @@ import org.springframework.stereotype.Controller;
 import reactor.core.publisher.Sinks;
 import reactor.util.concurrent.Queues;
 
-import java.util.Optional;
-
 @Controller
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class UserGqlController {
 
     private final UserRepository userRepository;
-    private final Sinks.Many<User> sink = Sinks.many()
+    private final Sinks.Many<User> userSink = Sinks.many()
             .multicast()
             .onBackpressureBuffer(Queues.SMALL_BUFFER_SIZE, false);
-    private final Publisher<User> publisher = sink.asFlux();
+    private final Publisher<User> userPublisher = userSink.asFlux();
 
-    @QueryMapping("users")
-    public Iterable<User> getAllUsers() {
+    @QueryMapping("allUsers")
+    public Iterable<User> allUser() {
         return userRepository.findAll();
     }
 
-    @QueryMapping("userById")
-    public Optional<User> getUserById(@Argument Integer id) {
-        return userRepository.findById(id);
-    }
-
     @MutationMapping("addUser")
-    public User addUser(@Argument("user") AddUserRequest request) {
-        User user = new User();
-        user.setUsername(request.getUsername());
-        user.setEmail(request.getEmail());
-        user.setPassword(request.getPassword());
+    public User addUser(@Argument("user") AddUserRequest addUserRequest) {
+        final var user = new User();
+        user.setPassword(addUserRequest.getPassword());
+        user.setEmail(addUserRequest.getEmail());
+        user.setUsername(addUserRequest.getUsername());
         final var dbUser = userRepository.save(user);
-        sink.tryEmitNext(dbUser);
+        userSink.tryEmitNext(dbUser);
         return dbUser;
     }
 
-    @SubscriptionMapping("users")
-    public Publisher<User> subscribeUsers() {
-        return publisher;
+    @SubscriptionMapping("onUserCreation")
+    public Publisher<User> onUserCreation() {
+        return userPublisher;
     }
 
 }
